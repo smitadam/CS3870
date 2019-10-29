@@ -1,0 +1,106 @@
+﻿h1 {
+    font-family: "Times New Roman",Georgia,serif;
+    text-align: center;
+    text-decoration: underline;
+    color: blue;
+}
+
+h2 {
+    font-family: Impact, Charcoal, sans-serif;
+    text-align: center;
+    font-style: italic;
+    color: black;
+}
+
+body {
+    text-align: center;
+}
+
+li {
+    padding-top: 5px;
+}
+
+.navbar {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 100px;
+    left: 30px;
+    width: 10em;
+    z-index: 1;
+    text-align: left;
+}
+
+table {
+    align-items: center;
+}
+
+td, th {
+    color: black;
+    border: 3px;
+    border-style: outset;
+}
+
+th {
+    font-size: 20;
+}
+
+h3 {
+    color: black;
+    font-weight: 800;
+    font-family: Helvetica;
+}
+
+li {
+    font-weight: 800;
+    text-align: left;
+    margin-left: 40%;
+    font-family: Helvetica;
+    font-size: 14pt;
+    padding-bottom: 10px;
+}
+
+ol, ul {
+    list-style-position: inside;
+}
+
+.btn {
+    border: 3px;
+    border-style: outset;
+    padding: 5px;
+    color: black;
+    border-color: grey;
+    background-color: ButtonFace;
+    font-family: Helvetica;
+    font-weight: 800;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+    .btn:hover {
+        padding: 5px;
+        color: white;
+        font-family: Helvetica;
+        font-weight: 800;
+        text-decoration: none;
+        font-size: 14px;
+        background-color: black;
+    }
+
+a {
+    text-decoration: none;
+    color: blue;
+}
+
+a:hover {
+        color: orange;
+}
+
+.TreeView{
+    position: absolute;
+    left: 30px;
+    top: 99px;
+    height: 150px;
+    width: 110px;
+}

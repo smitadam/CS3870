@@ -116,7 +116,7 @@ td {
             </tr>
             <tr>
                 <td class="auto-style7">
-                    <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtName" runat="server" OnTextChanged="txtName_TextChanged"></asp:TextBox>
                 </td>
                 <td class="auto-style3">&nbsp;</td>
             </tr>
@@ -130,7 +130,7 @@ td {
             </tr>
             <tr>
                 <td class="auto-style8">
-                    <asp:TextBox ID="txtID" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtID" runat="server" OnTextChanged="txtID_TextChanged"></asp:TextBox>
                 </td>
                 <td>
                     <asp:TextBox ID="txtSubTotal" runat="server" ReadOnly="True" style="text-align: right"></asp:TextBox>
@@ -138,8 +138,7 @@ td {
             </tr>
             <tr>
                 <td class="auto-style8">
-                    <asp:RequiredFieldValidator ID="IDRequiredFieldValidator" runat="server" ControlToValidate="txtID" ErrorMessage="ID cannot be empty!" Font-Bold="True" Font-Italic="True" Font-Size="Smaller" ForeColor="Red"></asp:RequiredFieldValidator>
-                </td>
+                    &nbsp;</td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
@@ -160,9 +159,7 @@ td {
             </tr>
             <tr>
                 <td class="auto-style8">
-                    <asp:CompareValidator ID="PriceCompareValidator" runat="server" ControlToValidate="txtPrice" ErrorMessage="Unit price must be a positive number!" Font-Bold="True" Font-Italic="True" Font-Size="Smaller" ForeColor="Red" Operator="GreaterThan" Type="Double" ValueToCompare="0"></asp:CompareValidator>
-                    <asp:RequiredFieldValidator ID="PriceRequiredFieldValidator" runat="server" ControlToValidate="txtPrice" ErrorMessage="Price cannot be empty!" Font-Bold="True" Font-Italic="True" Font-Size="Smaller" ForeColor="Red"></asp:RequiredFieldValidator>
-                </td>
+                    &nbsp;</td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
@@ -183,8 +180,7 @@ td {
             </tr>
             <tr>
                 <td class="auto-style8">
-                    <asp:RequiredFieldValidator ID="QuantityRequiredFieldValidator" runat="server" ControlToValidate="txtQuantity" ErrorMessage="Quantity cannot be empty!" Font-Bold="True" Font-Italic="True" Font-Size="Smaller" ForeColor="Red"></asp:RequiredFieldValidator>
-                    <asp:CompareValidator ID="QuantityCompareValidator" runat="server" ControlToValidate="txtQuantity" ErrorMessage="Quantity must be a non-negative integer!" Font-Bold="True" Font-Italic="True" Font-Size="Smaller" ForeColor="Red" Operator="GreaterThan" ValueToCompare="0"></asp:CompareValidator>
+                    <asp:Label ID="lblQuantityError" runat="server" Text="Label" Visible="False"></asp:Label>
                 </td>
                 <td>&nbsp;</td>
             </tr>
@@ -193,7 +189,7 @@ td {
                     <asp:Button ID="btnCompute" runat="server" CssClass="btn" Height="32px" OnClick="btnCompute_Click" style="font-weight: 700" Text="Compute" Width="121px" />
                 </td>
                 <td>
-                    <asp:Button ID="btnReset" runat="server" CssClass="btn" Height="32px" OnClick="btnReset_Click" style="font-weight: 700" Text="Reset" Width="119px" />
+                    <asp:Button ID="btnReset" runat="server" CssClass="btn" Height="32px" OnClick="btnReset_Click" style="font-weight: 700" Text="Reset" Width="119px" UseSubmitBehavior="False" />
                 </td>
             </tr>
         </table>

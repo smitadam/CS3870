@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
         <div style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">
-            <asp:GridView ID="ProductGrid" runat="server" AutoGenerateColumns="False" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" DataKeyNames="ProductID" ForeColor="Black" style="align-items: center; text-align: left;">
+<asp:GridView ID="ProductGrid" runat="server" AutoGenerateColumns="False" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" DataKeyNames="ProductID" ForeColor="Black" style="align-items: center; text-align: left;">
                 <Columns>
                     <asp:BoundField DataField="ProductID" HeaderText="Product ID" ReadOnly="True" SortExpression="ProductID" />
                     <asp:BoundField DataField="ProductName" HeaderText="Product Name" SortExpression="ProductName" />
@@ -26,6 +26,23 @@
                 <SortedDescendingCellStyle BackColor="#CAC9C9" />
                 <SortedDescendingHeaderStyle BackColor="#383838" />
             </asp:GridView>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:UWPCS3870ConnectionString %>" DeleteCommand="DELETE FROM [Product] WHERE [ProductID] = @ProductID" InsertCommand="INSERT INTO [Product] ([ProductID], [ProductName], [UnitPrice], [Description]) VALUES (@ProductID, @ProductName, @UnitPrice, @Description)" SelectCommand="SELECT * FROM [Product] ORDER BY [ProductID]" UpdateCommand="UPDATE [Product] SET [ProductName] = @ProductName, [UnitPrice] = @UnitPrice, [Description] = @Description WHERE [ProductID] = @ProductID">
+                <DeleteParameters>
+                    <asp:Parameter Name="ProductID" Type="String" />
+                </DeleteParameters>
+                <InsertParameters>
+                    <asp:Parameter Name="ProductID" Type="String" />
+                    <asp:Parameter Name="ProductName" Type="String" />
+                    <asp:Parameter Name="UnitPrice" Type="Decimal" />
+                    <asp:Parameter Name="Description" Type="String" />
+                </InsertParameters>
+                <UpdateParameters>
+                    <asp:Parameter Name="ProductName" Type="String" />
+                    <asp:Parameter Name="UnitPrice" Type="Decimal" />
+                    <asp:Parameter Name="Description" Type="String" />
+                    <asp:Parameter Name="ProductID" Type="String" />
+                </UpdateParameters>
+            </asp:SqlDataSource>
             <asp:SqlDataSource ID="SqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:UWPCS3870ConnectionString %>" DeleteCommand="DELETE FROM [Product] WHERE [ProductID] = @ProductID" InsertCommand="INSERT INTO [Product] ([ProductID], [ProductName], [UnitPrice], [Description]) VALUES (@ProductID, @ProductName, @UnitPrice, @Description)" SelectCommand="SELECT * FROM [Product] ORDER BY [ProductID]" UpdateCommand="UPDATE [Product] SET [ProductName] = @ProductName, [UnitPrice] = @UnitPrice, [Description] = @Description WHERE [ProductID] = @ProductID">
                 <DeleteParameters>
                     <asp:Parameter Name="ProductID" Type="String" />

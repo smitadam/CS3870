@@ -56,5 +56,90 @@ namespace Prog3
             Application["Prog3_Index"] = SQLDataClass.tblProduct.Rows.Count - 1;
             DisplayRow((int)Application["Prog3_Index"]);
         }
+
+        protected void btnUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string theID = txtID.Text;
+                string newName = txtName.Text;
+                double newPrice = double.Parse(txtPrice.Text.Replace("$", ""));
+                string newDesc = txtDescription.Text;
+                SQLDataClass.UpdateProduct(theID, newName, newPrice, newDesc);
+                txtMessage.Text = "Record updated.";
+                SQLDataClass.getAllProducts();
+            }
+            catch(Exception ex)
+            {
+                txtMessage.Text = "Product Not Updated: " + ex.Message;
+            }
+        }
+        protected void clearTextFields()
+        {
+            txtID.Text = "";
+            txtDescription.Text = "";
+            txtName.Text = "";
+            txtPrice.Text = "";
+        }
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (btnAdd.Text == "Add")
+            {
+                btnDelete.Enabled = false;
+                btnNext.Enabled = false;
+                btnPrevious.Enabled = false;
+                btnFirst.Enabled = false;
+                btnLast.Enabled = false;
+                btnUpdate.Enabled = false;
+                btnAdd.Text = "Save";
+                clearTextFields();
+            }
+            else
+            {
+                btnDelete.Enabled = true;
+                btnNext.Enabled = true;
+                btnPrevious.Enabled = true;
+                btnFirst.Enabled = true;
+                btnLast.Enabled = true;
+                btnUpdate.Enabled = true;
+                try
+                {
+                    btnAdd.Text = "Add";
+                    string theID = txtID.Text;
+                    string newName = txtName.Text;
+                    double newPrice = double.Parse(txtPrice.Text.Replace("$", ""));
+                    string newDesc = txtDescription.Text;
+
+                    SQLDataClass.InsertProduct(theID, newName, newPrice, newDesc);
+                    txtMessage.Text = "Record added.";
+                    SQLDataClass.getAllProducts();
+                }
+                catch (Exception ex)
+                {
+                    txtMessage.Text = "Product Not Added: " + ex.Message;
+                }
+            }
+        }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string theID = txtID.Text;
+                SQLDataClass.DeleteProduct(theID);
+                txtMessage.Text = "Record deleted.";
+                SQLDataClass.getAllProducts();
+
+                int index = (int)Application["Prog3_Index"] - 1;
+                if (index < 0)
+                    index = 0;
+                Application["Prog3_index"] = index;
+                DisplayRow(index);
+            }
+            catch (Exception ex)
+            {
+                txtMessage.Text = "Product Not Deleted: " + ex.Message;
+            }
+        }
     }
 }

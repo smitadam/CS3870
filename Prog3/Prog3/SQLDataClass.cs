@@ -55,7 +55,7 @@ namespace Prog3
             prodCmd.CommandText = "Update Product " +
                                   "Set ProductName = '" + newName + "', " +
                                   "UnitPrice = " + newPrice + ", " +
-                                  "Description = '" + newDesc + "', " +
+                                  "Description = '" + newDesc + "' " +
                                   "Where ProductID = '" + theID + "'";
 
             try
@@ -64,6 +64,67 @@ namespace Prog3
                 prodCmd.ExecuteNonQuery();
             }
             catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public static void DeleteProduct(string ID)
+        {
+            prodCmd.CommandText = "Delete Product " +
+                                  "Where ProductID = '" + ID + "'";
+
+            try
+            {
+                con.Open();
+                prodCmd.ExecuteNonQuery();
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        public static void InsertProduct(string theID, string newName, double newPrice, string newDesc)
+        {
+            prodCmd.CommandText = "INSERT INTO Product(ProductID, ProductName, UnitPrice, Description) values('" + theID + "', '" +
+                                  newName + "', " +
+                                  newPrice + ", '" + newDesc + "')";
+
+
+            try
+            {
+                con.Open();
+                prodCmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public static Object QueryProduct(string theName)
+        {
+            prodCmd.CommandText = "Select * from Product Where ProductName = '" + theName + "'";
+
+            try
+            {
+               
+                con.Open();
+                return prodCmd.ExecuteScalar();
+            }
+            catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }

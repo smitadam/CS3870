@@ -11,14 +11,13 @@ namespace Prog3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack && (bool)Application["Prog2_Computed"])
-            {
-                txtID.Text = (string)Application["Prog2_ProductID"];
-                txtQuantity.Text = (string)Application["Prog2_ProductQuantity"];
-                txtPrice.Text = (string)Application["Prog2_ProductPrice"];
-                CalculateTotals();
-            }
+            SQLDataClass.getAllProducts();
+            this.DataBind();
 
+            //txtID.Text = (string)Application["Prog2_ProductID"];
+            //txtQuantity.Text = (string)Application["Prog2_ProductQuantity"];
+            //txtPrice.Text = Application["Prog2_ProductPrice"].ToString();
+           
             txtID.Focus();
         }
 
@@ -50,12 +49,47 @@ namespace Prog3
 
         protected void btnCompute_Click(object sender, EventArgs e)
         {
-            CalculateTotals();
+            const int COL_1 = 0;
+            const int COL_2 = 1;
+            const int COL_3 = 2;
 
-            Application["Prog2_ProductPrice"] = txtPrice.Text;
-            Application["Prog2_ProductQuantity"] = txtQuantity.Text;
-            Application["Prog2_ProductID"] = txtID.Text;
-            Application["Prog2_Computed"] = true;
+   
+            for (int i = 0; i < SQLDataClass.tblProduct.Rows.Count; i++)
+            {
+                if (SQLDataClass.tblProduct.Rows[i][COL_1].ToString() == txtID.Text)
+                {
+                    Application["Prog2_ProductPrice"] = SQLDataClass.tblProduct.Rows[i][COL_3];
+                    Application["Prog2_ProductName"] = SQLDataClass.tblProduct.Rows[i][COL_2].ToString();
+                    Application["Prog2_ProductID"] = SQLDataClass.tblProduct.Rows[i][COL_1].ToString();
+
+                    txtName.Text = SQLDataClass.tblProduct.Rows[i][COL_2].ToString();
+                    txtID.Text = SQLDataClass.tblProduct.Rows[i][COL_1].ToString();
+                    txtPrice.Text = string.Format("{0:C}", SQLDataClass.tblProduct.Rows[i][COL_3].ToString());
+                }
+            }
+
+
+            if(txtQuantity.Text == "")
+            {
+                lblQuantityError.Text = "Enter a Quantity please!";
+                lblQuantityError.Visible = true;
+            }
+            else if(int.Parse(txtQuantity.Text) < 0)
+            {
+                lblQuantityError.Text = "Quanity must be a non-negative integer!";
+                lblQuantityError.Visible = true;
+            }
+            else
+            {
+                lblQuantityError.Visible = false;
+                CalculateTotals();
+
+                Application["Prog2_ProductPrice"] = txtPrice.Text;
+                Application["Prog2_ProductQuantity"] = txtQuantity.Text;
+                Application["Prog2_ProductID"] = txtID.Text;
+                Application["Prog2_Computed"] = true;
+                lblQuantityError.Visible = false;
+            }
         }
 
         protected void btnReset_Click(object sender, EventArgs e)
@@ -66,6 +100,7 @@ namespace Prog3
             txtSubTotal.Text = "";
             txtTax.Text = "";
             txtGrandTotal.Text = "";
+            txtName.Text = "";
 
             txtID.ReadOnly = false;
             txtPrice.ReadOnly = false;
@@ -73,6 +108,26 @@ namespace Prog3
             SetFocus(txtID);
 
             Application["Prog2_Computed"] = false;
+
+            lblQuantityError.Visible = false;
+        }
+
+        protected void txtName_TextChanged(object sender, EventArgs e)
+        {
+            //not needed
+        }
+        private void DisplayRow(int index)
+        {
+            System.Data.DataRow row = SQLDataClass.tblProduct.Rows[(int)Application["Prog3_Index"]];
+
+            txtID.Text = row[0].ToString();
+            txtName.Text = row[1].ToString();
+            txtPrice.Text = string.Format("{0:C}", row[2]);
+        }
+
+        protected void txtID_TextChanged(object sender, EventArgs e)
+        {
+            //NOT USED
         }
     }
 }

@@ -83,8 +83,8 @@
                     <asp:Button ID="btnNext" runat="server" style="font-weight: 700" Text="Next" CssClass="btn" Width="121px" Height="32px" OnClick="btnNext_Click" />
                 </td>
                 <td>
-                    <asp:Button ID="btnAdd" runat="server" style="font-weight: 700" Text="Add" CssClass="btn" Width="119px" Height="32px" />
-                    <asp:Button ID="btnDelete" runat="server" style="font-weight: 700" Text="Delete" CssClass="btn" Width="119px" Height="32px" />
+                    <asp:Button ID="btnAdd" runat="server" style="font-weight: 700" Text="Add" CssClass="btn" Width="119px" Height="32px" OnClick="btnAdd_Click" />
+                    <asp:Button ID="btnDelete" runat="server" style="font-weight: 700" Text="Delete" CssClass="btn" Width="119px" Height="32px" OnClick="btnDelete_Click" />
                 </td>
             </tr>
             <tr>
@@ -93,7 +93,15 @@
                     <asp:Button ID="btnLast" runat="server" style="font-weight: 700" Text="Last" CssClass="btn" Width="119px" Height="32px" OnClick="btnLast_Click" />
                 </td>
                 <td class="auto-style2">
+                    <asp:Button ID="btnUpdate" runat="server" style="font-weight: 700" Text="Update" CssClass="btn" Width="119px" Height="32px" OnClick="btnUpdate_Click" />
+                    </td>
+            </tr>
+            <tr>
+                <td class="auto-style9">
                     &nbsp;</td>
+                <td class="auto-style2">
+                    <asp:TextBox ID="txtMessage" runat="server" Width="169px"></asp:TextBox>
+                </td>
             </tr>
             </table>
     </form>

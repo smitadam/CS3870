@@ -76,15 +76,6 @@ namespace Prog3 {
         protected global::System.Web.UI.WebControls.TextBox txtSubTotal;
         
         /// <summary>
-        /// IDRequiredFieldValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator IDRequiredFieldValidator;
-        
-        /// <summary>
         /// lblPrice control.
         /// </summary>
         /// <remarks>
@@ -119,24 +110,6 @@ namespace Prog3 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTax;
-        
-        /// <summary>
-        /// PriceCompareValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator PriceCompareValidator;
-        
-        /// <summary>
-        /// PriceRequiredFieldValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator PriceRequiredFieldValidator;
         
         /// <summary>
         /// lblQuantity control.
@@ -175,22 +148,13 @@ namespace Prog3 {
         protected global::System.Web.UI.WebControls.TextBox txtGrandTotal;
         
         /// <summary>
-        /// QuantityRequiredFieldValidator control.
+        /// lblQuantityError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator QuantityRequiredFieldValidator;
-        
-        /// <summary>
-        /// QuantityCompareValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator QuantityCompareValidator;
+        protected global::System.Web.UI.WebControls.Label lblQuantityError;
         
         /// <summary>
         /// btnCompute control.

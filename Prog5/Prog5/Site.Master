@@ -1,0 +1,48 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Prog5.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - My ASP.NET Application</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+    <style type="text/css">
+        table{
+            border: none;
+        }
+        td{
+            border: none;
+        }
+    </style>
+</head>
+    <body>
+        <form id="SiteMaster" runat="server">
+            <h1>Web Protocols Technologies and Applications</h1>
+            <h2>Adam Smith</h2>
+            <h3>Prog 5</h3>
+            <asp:TreeView class="TreeView" ID="TreeView1" runat="server" ExpandImageToolTip="">
+                <DataBindings>
+                    <asp:TreeNodeBinding DataMember="Default" NavigateUrl="Default.aspx" Target="Default.aspx"  Text="All Products" />
+                    <asp:TreeNodeBinding DataMember="Shopping" NavigateUrl="Shopping.aspx" Target="Shopping.aspx" Text="Shopping" Value="Shopping" />
+                    <asp:TreeNodeBinding DataMember="Updating" NavigateUrl="Updating.aspx" Text="Updating" Value="Updating" />
+                    <asp:TreeNodeBinding DataMember="Checkout" NavigateUrl="Checkout.aspx" Text="Checkout" Value="Checkout" />
+                </DataBindings>
+                <Nodes>
+                    <asp:TreeNode Text="All Products" Value="New Node" NavigateUrl="Default.aspx"></asp:TreeNode>
+                    <asp:TreeNode Text="Updating" Value="New Node" NavigateUrl="Updating.aspx"></asp:TreeNode>
+                    <asp:TreeNode Text="Shopping" Value="New Node" NavigateUrl="Shopping.aspx"></asp:TreeNode>
+                    <asp:TreeNode NavigateUrl="Checkout.aspx" Text="Checkout" Value="New Node"></asp:TreeNode>
+                </Nodes>
+            </asp:TreeView>
+    </form>
+</body>
+</html>

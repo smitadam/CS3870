@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="" title="UWP CS 3870"  description="">
+    <siteMapNode url="CreateUser.aspx" title="Create Users" />
+    <siteMapNode url="Login.aspx" title="Login" />
+    <siteMapNode url="" title="Prog 6">
+      <siteMapNode url="" title="Admin">
+        <siteMapNode url="Admin\SetRoles.aspx" title="Set Roles" />
+        <siteMapNode url="Admin\Updating.aspx" title="Updating" />
+      </siteMapNode>
+      <siteMapNode url="" title="Member">
+        <siteMapNode url="Member\Shopping.aspx" title="Shopping" />
+        <siteMapNode url="Member\Checkout.aspx" title="Checkout" />
+      </siteMapNode>
+    </siteMapNode>
+  </siteMapNode>
+</siteMap>

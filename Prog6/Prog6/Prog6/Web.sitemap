@@ -3,7 +3,7 @@
   <siteMapNode url="" title="UWP CS 3870"  description="">
     <siteMapNode url="CreateUser.aspx" title="Create Users" />
     <siteMapNode url="Login.aspx" title="Login" />
-    <siteMapNode url="" title="Prog 6">
+    <siteMapNode url="Default.aspx" title="Prog 6" description="All Products">
       <siteMapNode url="" title="Admin">
         <siteMapNode url="Admin\SetRoles.aspx" title="Set Roles" />
         <siteMapNode url="Admin\Updating.aspx" title="Updating" />
@@ -11,6 +11,15 @@
       <siteMapNode url="" title="Member">
         <siteMapNode url="Member\Shopping.aspx" title="Shopping" />
         <siteMapNode url="Member\Checkout.aspx" title="Checkout" />
+      </siteMapNode>
+      <siteMapNode url="Prog7\Default.aspx" title ="Prog 7" description="All Products">
+        <siteMapNode url="" title="Admin">
+          <siteMapNode url="Prog7\Admin\Updating.aspx" title="Updating" />
+        </siteMapNode>
+        <siteMapNode url="" title ="Member">
+          <siteMapNode url="Prog7\Member\Shopping.aspx" title="Shopping" />
+          <siteMapNode url="Prog7\Member\Checkout.aspx" title="Checkout" />
+        </siteMapNode>
       </siteMapNode>
     </siteMapNode>
   </siteMapNode>

@@ -26,14 +26,14 @@ namespace Prog6.Member
         protected void btnLoginStatus_Click(object sender, EventArgs e)
         {
             Data.SQLCheckoutClass.DeleteShoppingCart();
-            Response.Redirect("Login.aspx");
+            Response.Redirect("/Login.aspx");
             Application["Prog5_CurrentUser"] = "";
         }
 
         protected void btnCheckout_Click(object sender, EventArgs e)
         {
             Data.SQLCheckoutClass.DeleteShoppingCart();
-            Response.Redirect("Login.aspx");
+            Response.Redirect("/Default.aspx");
             Application["Prog5_CurrentUser"] = "";
             Application["Prog6_CartTotal"] = "$0.00";
         }
